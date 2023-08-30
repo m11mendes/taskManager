@@ -9,8 +9,8 @@ import com.example.tm.service.TaskService;
 import lombok.AllArgsConstructor;
 import org.springframework.stereotype.Service;
 
+import java.util.ArrayList;
 import java.util.List;
-import java.util.stream.Collectors;
 
 @Service
 @AllArgsConstructor
@@ -39,9 +39,13 @@ public class TaskServiceImpl implements TaskService {
     @Override
     public List<TaskDto> getAllTasks() {
         List<Task> taskList = taskRepository.findAll();
+        List<TaskDto> taskDtos = new ArrayList<>();
 
-        return taskList.stream().map((task) -> TaskMapper.mapToTaskDto(task))
-                .collect(Collectors.toList());
+        for (int i = 0; i < taskList.size(); i++) {
+            taskDtos.add(TaskMapper.mapToTaskDto(taskList.get(i)));
+        }
+
+        return taskDtos;
     }
 
     @Override

@@ -1,8 +1,6 @@
 package com.example.tm.controller;
 
 import com.example.tm.dto.TaskDto;
-import com.example.tm.entity.Task;
-import com.example.tm.enums.Status;
 import com.example.tm.service.TaskService;
 import lombok.AllArgsConstructor;
 import org.springframework.http.HttpStatus;
@@ -10,7 +8,6 @@ import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
 
 import java.util.List;
-import java.util.stream.Collectors;
 
 @RestController
 @RequestMapping("/api/tasks")
